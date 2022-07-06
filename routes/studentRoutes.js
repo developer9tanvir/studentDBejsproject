@@ -1,6 +1,6 @@
 
 const express = require('express');
-const { getAllStudents, createStudent, getSingleStudent, showStudentForm, deleteStudent, editFormStudent } = require('../controllers/studentsControllers');
+const { getAllStudents, createStudent, getSingleStudent, showStudentForm, deleteStudent, editFormStudent, editStudentdata } = require('../controllers/studentsControllers');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
@@ -30,6 +30,7 @@ router.get('/', getAllStudents);
 router.post('/', studentMulter, createStudent);
 router.get('/:id', getSingleStudent);
 router.get('/edit/:id', editFormStudent);
+router.post('/edit/:id', studentMulter, editStudentdata);
 
 
 

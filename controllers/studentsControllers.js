@@ -72,9 +72,27 @@ const deleteStudent = async (req, res) => {
 const editFormStudent = async (req, res) => {
     let id = req.params.id;
 
-    let editStudentData = await students.findById(id);
+   let editStudentData = await students.findByIdAndUpdate(id);
     res.render('edit', {editStudentData}); 
 }
+
+const editStudentdata = async (req, res) => {
+    let id = req.params.id;
+
+    let filename = req.body.oldphoto
+
+    if (req.file) {
+
+        filename = req.file.filename
+    }
+    await students.findByIdAndUpdate(id,{
+        ...req.body,
+        photo : filename
+     });
+    res.redirect('/student');
+}
+
+
 
 
 
@@ -85,5 +103,6 @@ module.exports = {
     getSingleStudent,
     showStudentForm,
     deleteStudent,
-    editFormStudent
+    editFormStudent,
+    editStudentdata
 }

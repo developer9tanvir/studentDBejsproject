@@ -10,21 +10,22 @@
                     <div class="card-body">
                         <h2>Add New Students</h2>
                         <hr>
-                        <form action="/student" method="POST" enctype="multipart/form-data">
+                        <form action="/student/edit/<%= editStudentData._id %> " method="POST" enctype="multipart/form-data">
                             <div class="my-3">
                                 <label for="">Name</label>
-                                <input name="name" type="text" class="form-control">
+                                <input value="<%= editStudentData.name %>" name="name" type="text" class="form-control">
                             </div>
                             <div class="my-3">
                                 <label for="">Email</label>
-                                <input name="email" type="text" class="form-control">
+                                <input value="<%= editStudentData.email %>" name="email" type="text" class="form-control">
                             </div>
                             <div class="my-3">
                                 <label for="">Cell</label>
-                                <input name="cell" type="text" class="form-control">
+                                <input value="<%= editStudentData.cell %>" name="cell" type="text" class="form-control">
                             </div>
                             <div class="my-3">
                                 <label for="">Photo</label>
+                                <input value="<%= editStudentData.photo %>" type="hidden" name="oldphoto" id="">
                                 <input name="photo" type="file" class="">
                             </div>
                             <div class="my-3">
